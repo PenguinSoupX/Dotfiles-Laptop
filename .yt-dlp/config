@@ -1,6 +1,19 @@
 # Output directory for downloaded files
 -o ~/Downloads/yt-dlp/"%(title)s - %(channel)s.%(ext)s"
 
+# Output Limit Title to 70 Characters so that the filename fits in 255bytes
+# -o ~/Downloads/yt-dlp/"%(title).70s - %(channel)s.%(ext)s"
+
+# Playlist download location
+# -o ~/Downloads/yt-dlp/Playlist/"%(playlist_index)s %(title)s - %(channel)s.%(ext)s"
+
+# Cookies Firefox
+--cookies "/home/don/Downloads/Cookies/Youtube/cookies.txt"
+
+# Output directory for downloaded files - for when filenames get too long
+# So the title name would be restricted to 50 characters
+# -o ~/Downloads/yt-dlp/"%(title).50s - %(channel)s.%(ext)s"
+
 # Set default video format to best
 # -f "bestvideo*+bestaudio/best"
 
@@ -8,7 +21,8 @@
 # -f 'bestvideo[height<=720]+bestaudio/best'
 
 # Download the best 1080p video
- -f 'bestvideo[height<=1080]+bestaudio/best'
+#  -f 'bestvideo[height<=1080]+bestaudio/best'
+-f 'bestvideo[vcodec=av01][height<=1080]+bestaudio/bestvideo[height<=1080]+bestaudio/best'
 
 # Set output file format to mkv
 --merge-output-format mkv
